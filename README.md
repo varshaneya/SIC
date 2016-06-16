@@ -1,2 +1,2 @@
 # SIC-XE
-for developing assembler for SIC/XE
+To develop an assembler for SIC/XE
