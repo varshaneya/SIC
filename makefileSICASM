@@ -1,0 +1,17 @@
+#this is a make file for SIC assembler
+
+FLAG1 = -c -fno-stack-protector -lm
+
+SICASM: sicPass1-15013.o utilitiesForSIC-15013.o sicPass2-15013.o sicASM-15013.o
+	gcc -o SICASM sicPass1-15013.o utilitiesForSIC-15013.o sicPass2-15013.o sicASM-15013.o -lm
+sicASM-15013.o: sicASM-15013.c SIC.h
+	gcc $(FLAG1) sicASM-15013.c SIC.h
+sicPass2-15013.o: sicPass2-15013.c SIC.h
+	gcc $(FLAG1) sicPass2-15013.c SIC.h
+sicPass1-15013.o: sicPass1-15013.c SIC.h
+	gcc $(FLAG1) sicPass1-15013.c SIC.h
+utilitiesForSIC-15013.o: utilitiesForSIC-15013.c SIC.h
+	gcc $(FLAG1) utilitiesForSIC-15013.c SIC.h 
+
+clean:
+	rm utilitiesForSIC-15013.o sicPass1-15013.o sicPass2-15013.o sicASM-15013.o
