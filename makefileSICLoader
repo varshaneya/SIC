@@ -1,0 +1,15 @@
+#this is a makefile for SIC loader
+
+FLAG1 = -c -lm
+
+SICLDR: absLoaderSIC-15013.o utilitiesForSIC-15013.o
+	gcc -o SICLDR absLoaderSIC-15013.o utilitiesForSIC-15013.o -lm
+
+absLoaderSIC-15013.o: absLoaderSIC-15013.c
+	gcc $(FLAG1) absLoaderSIC-15013.c
+
+utilitiesForSIC-15013.o: utilitiesForSIC-15013.c
+	gcc $(FLAG1) utilitiesForSIC-15013.c
+	
+clean:
+	rm absLoaderSIC-15013.o utilitiesForSIC-15013.o
